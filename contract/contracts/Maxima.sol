@@ -21,12 +21,12 @@ contract Maxima is ERC721URIStorage {
         console.log("This is my NFT contract. Woah!");
     }
 
-    function makeWordleNFT() public {
+    function makeWordleNFT(string memory result) public {
         uint256 newItemId = _tokenIds.current();
-        string memory text = "Wordle NFT #";
+//        string memory text = "Wordle NFT #";
         string memory number = Strings.toString(newItemId);
         string memory finalSvg = string(
-            abi.encodePacked(baseSvg, text, number, "</text></svg>")
+            abi.encodePacked(baseSvg, result, number, "</text></svg>")
         );
         // Get all the JSON metadata in place and base64 encode it.
         string memory json = Base64.encode(
@@ -35,7 +35,7 @@ contract Maxima is ERC721URIStorage {
                     abi.encodePacked(
                         '{"name": "',
                         // We set the title of our NFT as the generated word.
-                        text,
+                        result,
                         number,
                         '", "description": "A collection of proudly minted Wordle NFTs.", "image": "data:image/svg+xml;base64,',
                         // We add data:image/svg+xml;base64 and then append our base64 encode our svg.

@@ -14,13 +14,18 @@ const Mint = () => {
         const provider = new ethers.providers.Web3Provider(ethereum);
         const signer = provider.getSigner();
         const connectedContract = new ethers.Contract(
-          "0x7b7127Da4419656e2D76Ec3104605ba7B1F29Ca1",
+          "0x5FbDB2315678afecb367f032d93F642f64180aa3",
           contractAbi.abi,
           signer
         );
 
         console.log("Going to pop wallet now to pay gas...");
-        let nftTxn = await connectedContract.makeWordleNFT();
+        const result = "hello wordle 4/6</br>" +
+            "⬛🟨⬛⬛⬛</br>" +
+            "🟨⬛🟩⬛⬛</br>" +
+            "⬛⬛🟨⬛🟩</br>" +
+            "🟩🟩🟩🟩🟩";
+        let nftTxn = await connectedContract.makeWordleNFT(result);
 
         console.log("Mining...please wait.");
         await nftTxn.wait();

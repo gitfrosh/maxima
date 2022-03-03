@@ -5,7 +5,11 @@ const main = async () => {
     console.log("Contract deployed to:", nftContract.address);
   
     // Call the function.
-    let txn = await nftContract.makeWordleNFT()
+    let txn = await nftContract.makeWordleNFT("hello wordl 4/6\n" +
+        "⬛🟨⬛⬛⬛\n" +
+        "🟨⬛🟩⬛⬛\n" +
+        "⬛⬛🟨⬛🟩\n" +
+        "🟩🟩🟩🟩🟩");
     // Wait for it to be mined.
     await txn.wait()
  
