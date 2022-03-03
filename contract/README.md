@@ -1,5 +1,11 @@
 # Advanced Sample Hardhat Project
 
+- create an .env file and paste your wallet PRIVATE_KEY and MUMBAI_URL from Alchemy (see App --> view Key --> http)
+- for testing you can run ``npx hardhat run scripts/run.js`` 
+- add chain (mumbai, polygon,..) to your wallet
+- add MATIC/ETH to your wallet for gas fees
+- for final deployemt run ``npx hardhat run scripts/deploy.js --network mumbai``
+
 This project demonstrates an advanced Hardhat use case, integrating other tools commonly used alongside Hardhat in the ecosystem.
 
 The project comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts. It also comes with a variety of other tools, preconfigured to work with the project code.
