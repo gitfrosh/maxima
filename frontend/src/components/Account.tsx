@@ -1,5 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
+import WordGame from "./WordGame";
 
 const Account = () => {
   const { activateBrowserWallet, deactivate, account } = useEthers();
@@ -34,10 +35,11 @@ const Account = () => {
                 type="button"
               >
                 Play Wordle!
+
               </button>
             </p>
           ) : (
-            "Playing game ..."
+            <WordGame />
           )}
         </div>
       ) : (
