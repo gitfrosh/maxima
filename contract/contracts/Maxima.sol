@@ -31,6 +31,7 @@ contract Maxima is ERC721, ERC721URIStorage, Ownable {
     }
 
     function payToMint(
+        address recipient,
         string memory metadataURI
     ) public payable returns (uint256) {
         require(existingURIs[metadataURI] != 1, 'NFT already minted!');
@@ -40,7 +41,7 @@ contract Maxima is ERC721, ERC721URIStorage, Ownable {
         _tokenIdCounter.increment();
         existingURIs[metadataURI] = 1;
 
-        _mint(msg.sender, newItemId);
+        _mint(recipient, newItemId);
         _setTokenURI(newItemId, metadataURI);
 
         return newItemId;

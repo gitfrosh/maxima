@@ -20,7 +20,7 @@ const Mint = () => {
         signer
     );
     const connection = contract.connect(signer);
-    const result = await contract.payToMint(metadataURI, {
+    const result = await contract.payToMint(connection.address, metadataURI, {
       value: ethers.utils.parseEther('0.0005')
     });
 
