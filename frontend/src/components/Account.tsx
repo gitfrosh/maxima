@@ -2,13 +2,14 @@ import { useEthers } from "@usedapp/core";
 import { useState } from "react";
 import Web3Modal from "web3modal";
 import WalletConnectProvider from "@walletconnect/web3-provider";
+import Fortmatic from "fortmatic";
+import Authereum from "authereum";
 
 const Account = () => {
-  const { activateBrowserWallet, activate, deactivate, account } = useEthers();
+  const { activate, deactivate, account } = useEthers();
   const [gameRunning, runGame] = useState(false);
   function handleConnectWallet() {
-    // activateBrowserWallet();
-    activateProvider()
+    activateProvider();
   }
   const activateProvider = async () => {
     const providerOptions = {
@@ -25,6 +26,19 @@ const Account = () => {
           bridge: "https://bridge.walletconnect.org",
           infuraId: "14a0951f47e646c1b241aa533e150219",
         },
+      },
+      fortmatic: {
+        package: Fortmatic,
+        options: {
+          key: "FORTMATIC_KEY",
+          network: {
+            rpcUrl: "https://rpc-mainnet.maticvigil.com",
+            chainId: 137,
+          },
+        },
+      },
+      authereum: {
+        package: Authereum,
       },
     };
 
@@ -74,7 +88,7 @@ const Account = () => {
           className="bg-teal-200 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
           onClick={handleConnectWallet}
         >
-          Connect with MetaMask
+          Connect Wallet
         </button>
       )}
     </div>
