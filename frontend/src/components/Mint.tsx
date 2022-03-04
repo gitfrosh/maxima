@@ -3,23 +3,33 @@ import fleekStorage from "@fleekhq/fleek-storage-js";
 import { v4 as uuidv4 } from "uuid";
 import html2canvas from "html2canvas";
 import { Buffer } from "buffer";
+import { ethers } from "ethers";
+import contractAbi from "../abi/Maxima.json";
 
 const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET } = process.env;
+const provider = new ethers.providers.Web3Provider(window.ethereum);
 
 const Mint = () => {
   const [isMinting, toggleMint] = useState(false);
   const printRef = useRef() as React.MutableRefObject<HTMLInputElement>;
+  const mintToken = async (metadataURI: string) => {
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+        "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        contractAbi.abi,
+        signer
+    );
+    const connection = contract.connect(signer);
+    const result = await contract.payToMint(metadataURI, {
+      value: ethers.utils.parseEther('0.0005')
+    });
 
+    await result.wait();
+  };
   const askContractToMintNft = async () => {
     toggleMint(true);
     const element = printRef.current;
     const canvas = await html2canvas(element);
-    const result = "hello wordle 4/6</br>" +
-        "⬛🟨⬛⬛⬛</br>" +
-        "🟨⬛🟩⬛⬛</br>" +
-        "⬛⬛🟨⬛🟩</br>" +
-        "🟩🟩🟩🟩🟩";
-    let nftTxn = await connectedContract.makeWordleNFT(result);
 
     const saveToIpfs = async (reader: any) => {
       const buffer = Buffer.from(reader.result);
@@ -36,6 +46,8 @@ const Mint = () => {
             data:  buffer,
           });
           console.log(input);
+          // mintToken("https://ipfs.fleek.co/ipfs/bafybeibidatmi6aav7b6rud6p2agrymwfg2oed2kxfy4dapbgyd4fw3qxm");
+          mintToken(input.publicUrl);
           // after final uploading to fleek, next step would be
           // to trigger connectedContract.makeWordleNFT() here, but with
           // image fleek/ipfs URI
