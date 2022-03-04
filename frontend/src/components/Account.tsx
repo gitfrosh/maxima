@@ -1,12 +1,41 @@
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
+import Web3Modal from "web3modal";
+import WalletConnectProvider from "@walletconnect/web3-provider";
 
 const Account = () => {
-  const { activateBrowserWallet, deactivate, account } = useEthers();
+  const { activateBrowserWallet, activate, deactivate, account } = useEthers();
   const [gameRunning, runGame] = useState(false);
   function handleConnectWallet() {
-    activateBrowserWallet();
+    // activateBrowserWallet();
+    activateProvider()
   }
+  const activateProvider = async () => {
+    const providerOptions = {
+      injected: {
+        display: {
+          name: "Metamask",
+          description: "Connect with the provider in your Browser",
+        },
+        package: null,
+      },
+      walletconnect: {
+        package: WalletConnectProvider,
+        options: {
+          bridge: "https://bridge.walletconnect.org",
+          infuraId: "14a0951f47e646c1b241aa533e150219",
+        },
+      },
+    };
+
+    const web3Modal = new Web3Modal({
+      providerOptions,
+    });
+    try {
+      const provider = await web3Modal.connect();
+      await activate(provider);
+    } catch (error: any) {}
+  };
 
   return (
     <div className="max-w-4xl mx-auto md:px-1 px-3">
