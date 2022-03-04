@@ -35,12 +35,12 @@ import {
 } from '../lib/localStorage'
 import { default as GraphemeSplitter } from 'grapheme-splitter'
 
-// import './App.css'
+import './App.css'
 import { AlertContainer } from '../components/alerts/AlertContainer'
 import { useAlert } from '../context/AlertContext'
 import { Navbar } from '../components/navbar/Navbar'
 
-function App() {
+function WordGame() {
   const prefersDarkMode = window.matchMedia(
     '(prefers-color-scheme: dark)'
   ).matches

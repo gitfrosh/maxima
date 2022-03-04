@@ -3,6 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"dependencies": {
+		"@headlessui/react": "^1.5.0",
 		"@types/node": "^16.11.17",
 		"@types/react": "^17.0.38",
 		"@types/react-dom": "^17.0.11",
@@ -10,6 +11,7 @@
 		"@walletconnect/web3-provider": "^1.7.3",
 		"framer-motion": "^4.1.17",
 		"react": "^17.0.2",
+		"react-countdown": "^2.3.2",
 		"react-dom": "^17.0.2",
 		"react-error-overlay": "^6.0.9",
 		"react-scripts": "^5.0.0",
