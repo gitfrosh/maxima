@@ -15,7 +15,7 @@ const Mint = () => {
   const mintToken = async (metadataURI: string) => {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
-        "0x5FbDB2315678afecb367f032d93F642f64180aa3",
+        "0xb3a259AfC22f1B4129fC6c1d8c3c359454d44bE3",
         contractAbi.abi,
         signer
     );
