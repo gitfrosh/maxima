@@ -145,8 +145,8 @@ const Mint = ({ guesses }: ResultProps) => {
       <br />
       {!isMinting && account ? (
         <button
-          className="bg-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
-          onClick={() => askContractToMintNft()}
+        className="bg-[#457B9D] hover:bg-[#A8DADC] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
+        onClick={() => askContractToMintNft()}
         >
           Mint my Wordle result now!
         </button>
