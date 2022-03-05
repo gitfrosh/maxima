@@ -11,7 +11,7 @@ export default function Header() {
             href="/"
             className="flex text-3xl text-[#F1FAEE] font-medium mb-4 md:mb-0"
           >
-            MAXIMA
+            WordleNFT
           </a>
           <button
             className="text-teal-600 pb-4 cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none content-end ml-auto"

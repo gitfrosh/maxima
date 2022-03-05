@@ -1,4 +1,3 @@
-import { useRef, useState } from "react";
 import Countdown from "react-countdown";
 import { StatBar } from "../stats/StatBar";
 import { GameStats } from "../../lib/localStorage";

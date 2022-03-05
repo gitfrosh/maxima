@@ -1,20 +1,33 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Account from "./components/Account";
+import { useEthers } from "@usedapp/core";
 
 function App() {
+  const { account } = useEthers();
+
   return (
     <div className="text-teal-600 bg-[#FFFFFF]">
       <Header />
       <section className="text-gray-600 body-font">
         <div className="max-w-5xl pt-52 pb-24 mx-auto">
-          <h1 className="text-80 text-center font-4 lh-6 ld-04 font-bold text-[#1D3557] mb-6">
-            Wordle
-          </h1>
-          <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
-            To get started with today's Wordle, simply connect your wallet to
-            play. <br />
-          </h2>
+          {account ? (
+              <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-4 text-black-400 text-center">
+              Welcome back `${account.slice(0, 6)}...$
+              {account.slice(account.length - 4, account.length)}`!
+            </h2>
+          ) : null}
+          {!account ? (
+            <>
+              <h1 className="text-80 text-center font-4 lh-6 ld-04 font-bold text-[#1D3557] mb-6">
+                Wordle
+              </h1>
+              <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
+                To get started with today's Wordle, simply connect your wallet
+                to play. <br />
+              </h2>
+            </>
+          ) : null}
           <div className="ml-6 text-center py-3 font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
             <div className="flex text-lg">
               <Account />

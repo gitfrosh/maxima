@@ -55,39 +55,36 @@ const Account = () => {
   return (
     <div className="max-w-4xl mx-auto md:px-1 px-3">
       {account ? (
-        <div className="ktq4">
-          <h3 className="font-semibold text-lg text-[#1D3557]">
-            Welcome back `${account.slice(0, 6)}...$
-            {account.slice(account.length - 4, account.length)}`!
-          </h3>
-          <br />
-          <p>
+        <>
+          <div className="pb-8">
             <button
               onClick={deactivate}
               className="bg-[#A8DADC] hover:bg-[#1D3557] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
             >
               Disconnect
             </button>
-          </p>
-          <br />
-          {!gameRunning ? (
-            <p>
-              <button
-                onClick={() => runGame(true)}
-                className="bg-[#E63946] hover:bg-[#457B9D] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
-                type="button"
-              >
-                Play Wordle!
-              </button>
-            </p>
-          ) : (
-            <WordleEngine />
-          )}
-        </div>
+          </div>
+          <div>
+            <br />
+            {!gameRunning ? (
+              <p>
+                <button
+                  onClick={() => runGame(true)}
+                  className="bg-[#E63946] hover:bg-[#457B9D] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
+                  type="button"
+                >
+                  Play Wordle!
+                </button>
+              </p>
+            ) : (
+              <WordleEngine />
+            )}
+          </div>
+        </>
       ) : (
         <button
-        className="bg-[#E63946] hover:bg-[#457B9D] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
-        onClick={handleConnectWallet}
+          className="bg-[#E63946] hover:bg-[#457B9D] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
+          onClick={handleConnectWallet}
         >
           Connect Wallet
         </button>

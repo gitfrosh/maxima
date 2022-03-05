@@ -26,7 +26,6 @@ const Mint = ({ guesses }: ResultProps) => {
   const generateEmojiGrid = (guesses: string[], tiles: string[]) => {
     const rows = guesses?.map((guess, i) => {
       const status = getGuessStatuses(guess);
-      console.log(i, guesses.length);
       const emoji = guess.split("").map((_, i) => {
         const isLastElement = i === guess.length - 1;
         switch (status[i]) {
@@ -92,7 +91,6 @@ const Mint = ({ guesses }: ResultProps) => {
         key: key,
         data: Buffer.from(JSON.stringify(metadata)),
       });
-      console.log(input);
       return metadataURI;
     }
     throw Error("no env vars set fleek");
