@@ -1,12 +1,9 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Account from "./components/Account";
-import Mint from "./components/Mint";
-import { useEthers } from "@usedapp/core";
 
 
 function App() {
-  const { account } = useEthers();
 
   return (
     <div className="text-teal-600 bg-gray-100	">
@@ -26,13 +23,6 @@ function App() {
               <Account />
             </div>
           </div>
-          {account ? (
-            <div className="ml-6 text-center py-3 font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
-              <div className="flex text-lg">
-                <Mint />
-              </div>
-            </div>
-          ) : null}
         </div>
 
         <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-teal-200 lg:text-7xl md:text-6xl">

@@ -1,14 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Countdown from "react-countdown";
 import { StatBar } from "../stats/StatBar";
 import { GameStats } from "../../lib/localStorage";
 import { tomorrow } from "../../lib/words";
 import { BaseModal } from "./BaseModal";
-import {
-  STATISTICS_TITLE,
-  NEW_WORD_TEXT,
-} from "../../constants/strings";
-import Result from "./Result";
+import { STATISTICS_TITLE, NEW_WORD_TEXT } from "../../constants/strings";
+import Mint from "../../../Mint";
 
 type Props = {
   isOpen: boolean;
@@ -31,6 +28,7 @@ export const StatsModal = ({
   isGameLost,
   isGameWon,
 }: Props) => {
+
   if (gameStats.totalGames <= 0) {
     return (
       <BaseModal
@@ -51,20 +49,15 @@ export const StatsModal = ({
       {(isGameLost || isGameWon) && (
         <>
           <div className="mt-5 mb-5 sm:mt-6 columns-2 dark:text-white content-center	">
-            <div>
               <h5>{NEW_WORD_TEXT}</h5>
               <Countdown
                 className="text-lg font-medium text-gray-900 dark:text-gray-100"
                 date={tomorrow}
                 daysInHours={true}
               />
-            </div>
           </div>
-          <div className="grid place-items-center">
-          <Result guesses={guesses} />
-</div>
-          <div className="dark:text-white content-center	">
-          </div>
+            <Mint guesses={guesses} />
+         
         </>
       )}
     </BaseModal>
