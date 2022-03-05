@@ -9,7 +9,7 @@ export default function Header() {
         <div className="flex flex-row items-center justify-between p-3 md:p-1">
           <a
             href="/"
-            className="flex text-3xl text-teal-600 font-medium mb-4 md:mb-0"
+            className="flex text-3xl text-[#F1FAEE] font-medium mb-4 md:mb-0"
           >
             MAXIMA
           </a>
@@ -46,21 +46,21 @@ export default function Header() {
           <div className="md:ml-auto md:mr-auto font-4 pt-1 md:pl-14 pl-1 flex flex-wrap items-center md:text-base text-1xl md:justify-center justify-items-start">
             <a
               href="/"
-              className="mr-11 pr-2 cursor-pointer text-gray-300 hover:text-teal-600 font-semibold tr04"
+              className="mr-11 pr-2 cursor-pointer text-[#F1FAEE] hover:text-[#457B9D] font-semibold tr04"
             >
-              Page 1
+              Charities
             </a>
             <a
               href="/"
-              className="mr-11 pr-2 cursor-pointer text-gray-300 hover:text-teal-600 font-semibold tr04"
+              className="mr-11 pr-2 cursor-pointer text-[#F1FAEE] hover:text-[#457B9D] font-semibold tr04"
             >
-              Page 2
+              About
             </a>
             <a
               href="/"
-              className="mr-5 cursor-pointer text-gray-300 hover:text-teal-600 font-semibold tr04"
+              className="mr-5 cursor-pointer text-[#F1FAEE] hover:text-[#457B9D] font-semibold tr04"
             >
-              Page 3
+              Contact Us
             </a>
           </div>
           <a

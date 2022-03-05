@@ -22,7 +22,7 @@ const Mint = () => {
         console.log("Going to pop wallet now to pay gas...");
         let nftTxn = await connectedContract.makeWordleNFT();
 
-        console.log("Mining...please wait.");
+        console.log("Minting...please wait.");
         await nftTxn.wait();
         console.log(nftTxn);
         console.log(
@@ -43,7 +43,7 @@ const Mint = () => {
     <div className="max-w-4xl mx-auto md:px-1 px-3">
       {!isMinting ? (
         <button
-          className="bg-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
+          className="bg-[#457B9D] hover:bg-[#A8DADC] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
           onClick={() => askContractToMintNft()}
         >
           Mint NFT now!
