@@ -24,26 +24,38 @@ const Mint = ({ guesses }: ResultProps) => {
   const { account } = useEthers();
 
   const generateEmojiGrid = (guesses: string[], tiles: string[]) => {
-    const row = guesses
-      ?.map((guess) => {
-        const status = getGuessStatuses(guess);
-        const emoji = guess
-          .split("")
-          .map((_, i) => {
-            switch (status[i]) {
-              case "correct":
-                return tiles[0];
-              case "present":
-                return tiles[1];
-              default:
-                return tiles[2];
-            }
-          })
-          .join("\n");
-        return emoji;
-      })
-      .join("\n");
-    return row;
+    const rows = guesses?.map((guess, i) => {
+      const status = getGuessStatuses(guess);
+      console.log(i, guesses.length);
+      const emoji = guess.split("").map((_, i) => {
+        const isLastElement = i === guess.length - 1;
+        switch (status[i]) {
+          case "correct":
+            return (
+              <>
+                <span>{tiles[0]}</span>
+                {isLastElement && <br />}
+              </>
+            );
+          case "present":
+            return (
+              <>
+                <span>{tiles[1]}</span>
+                {isLastElement && <br />}
+              </>
+            );
+          default:
+            return (
+              <>
+                <span>{tiles[2]}</span>
+                {isLastElement && <br />}
+              </>
+            );
+        }
+      });
+      return emoji;
+    });
+    return <>{rows}</>;
   };
 
   const [isMinting, toggleMint] = useState(false);
@@ -136,16 +148,10 @@ const Mint = ({ guesses }: ResultProps) => {
           className="bg-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
           onClick={() => askContractToMintNft()}
         >
-          Mint my Wordle Result! now!
+          Mint my Wordle result now!
         </button>
       ) : (
-        <button
-          type="button"
-          disabled
-          className="bg-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
-        >
-          Processing...
-        </button>
+        <span>Processing...</span>
       )}
     </div>
   );

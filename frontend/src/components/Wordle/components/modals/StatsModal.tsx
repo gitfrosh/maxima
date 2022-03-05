@@ -15,9 +15,6 @@ type Props = {
   isGameLost: boolean;
   isGameWon: boolean;
   handleShareToClipboard: () => void;
-  isHardMode: boolean;
-  isDarkMode: boolean;
-  isHighContrastMode: boolean;
 };
 
 export const StatsModal = ({
