@@ -51,7 +51,7 @@ a {
 }
 
 .txg {
-  color: #b8bcbf;
+  color: #bfbbb8;
 }
 
 .ld-04 {
@@ -74,8 +74,9 @@ a {
   transition: 0.4s;
 }
 
+/* NAVBAR COLOR | ORIG: #fff */
 .clearNav {
-  background-color: #fff !important;
+  background-color: #1D3557  !important;
 }
 
 .fsac4 {
@@ -90,8 +91,9 @@ a {
   }
 }
 
+/* CARD COLORS | orig: #fff */
 .ktq4 {
-  background-color: #fff;
+  background-color: #457B9D;
   padding: 2rem;
   border-radius: 10px;
 }

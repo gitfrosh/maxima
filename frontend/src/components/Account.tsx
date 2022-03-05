@@ -1,5 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
+import WordGame from "./WordGame";
 
 const Account = () => {
   const { activateBrowserWallet, deactivate, account } = useEthers();
@@ -12,7 +13,7 @@ const Account = () => {
     <div className="max-w-4xl mx-auto md:px-1 px-3">
       {account ? (
         <div className="ktq4">
-          <h3 className="font-semibold text-lg text-teal-600">
+          <h3 className="font-semibold text-lg text-[#1D3557]">
             Welcome back `${account.slice(0, 6)}...$
             {account.slice(account.length - 4, account.length)}`!
           </h3>
@@ -20,7 +21,7 @@ const Account = () => {
           <p>
             <button
               onClick={deactivate}
-              className="bg-teal-200 hhover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
+              className="bg-[#A8DADC] hover:bg-[#1D3557] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
             >
               Disconnect
             </button>
@@ -34,15 +35,16 @@ const Account = () => {
                 type="button"
               >
                 Play Wordle!
+
               </button>
             </p>
           ) : (
-            "Playing game ..."
+            <WordGame />
           )}
         </div>
       ) : (
         <button
-          className="bg-teal-200 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
+          className="bg-[#E63946] hover:bg-[#457B9D] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4  rounded-full"
           onClick={handleConnectWallet}
         >
           Connect with MetaMask
