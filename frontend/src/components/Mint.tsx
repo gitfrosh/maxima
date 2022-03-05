@@ -5,6 +5,8 @@ import html2canvas from "html2canvas";
 import { Buffer } from "buffer";
 import { ethers } from "ethers";
 import contractAbi from "../abi/Maxima.json";
+import Editor from "./Editor";
+
 
 const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET } = process.env;
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -15,13 +17,13 @@ const Mint = () => {
   const mintToken = async (metadataURI: string) => {
     const signer = provider.getSigner();
     const contract = new ethers.Contract(
-        "0xb3a259AfC22f1B4129fC6c1d8c3c359454d44bE3",
-        contractAbi.abi,
-        signer
+      "0xb3a259AfC22f1B4129fC6c1d8c3c359454d44bE3",
+      contractAbi.abi,
+      signer
     );
     const connection = contract.connect(signer);
     const result = await contract.payToMint(connection.address, metadataURI, {
-      value: ethers.utils.parseEther('0.0005')
+      value: ethers.utils.parseEther("0.0005"),
     });
 
     await result.wait();
@@ -43,7 +45,7 @@ const Mint = () => {
             apiKey: REACT_APP_FLEEK_KEY,
             apiSecret: REACT_APP_FLEEK_SECRET,
             key: `nft/${newTokenId}-${timestamp}`,
-            data:  buffer,
+            data: buffer,
           });
           console.log(input);
           // mintToken("https://ipfs.fleek.co/ipfs/bafybeibidatmi6aav7b6rud6p2agrymwfg2oed2kxfy4dapbgyd4fw3qxm");
@@ -68,11 +70,13 @@ const Mint = () => {
     });
   };
 
+
+
   return (
+
     <div className="max-w-4xl mx-auto md:px-1 px-3">
-      <div style={{ background: "purple", height: 200 }} ref={printRef}>
-        I will be in the image.
-      </div>
+      <Editor />
+
       <br />
       {!isMinting ? (
         <button
