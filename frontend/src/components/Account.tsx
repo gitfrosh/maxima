@@ -1,5 +1,6 @@
 import { useEthers } from "@usedapp/core";
 import { useState } from "react";
+import WordleEngine from "./Wordle/WordleEngine";
 
 const Account = () => {
   const { activateBrowserWallet, deactivate, account } = useEthers();
@@ -37,7 +38,7 @@ const Account = () => {
               </button>
             </p>
           ) : (
-            "Playing game ..."
+            <WordleEngine />
           )}
         </div>
       ) : (
