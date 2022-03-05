@@ -24,16 +24,12 @@ const Mint = ({ guesses }: ResultProps) => {
   const { account } = useEthers();
 
   const generateEmojiGrid = (guesses: string[], tiles: string[]) => {
-    console.log(guesses);
     const row = guesses
       ?.map((guess) => {
         const status = getGuessStatuses(guess);
-        console.log(guess, status);
         const emoji = guess
           .split("")
           .map((_, i) => {
-            console.log(_);
-
             switch (status[i]) {
               case "correct":
                 return tiles[0];
@@ -44,11 +40,9 @@ const Mint = ({ guesses }: ResultProps) => {
             }
           })
           .join("\n");
-        console.log(emoji);
         return emoji;
       })
       .join("\n");
-    console.log(row);
     return row;
   };
 
@@ -122,7 +116,6 @@ const Mint = ({ guesses }: ResultProps) => {
         toggleMint(false);
       }
     };
-    console.log(canvas);
     canvas.toBlob(function (blob) {
       if (blob) {
         let reader: any = new FileReader();
@@ -143,7 +136,7 @@ const Mint = ({ guesses }: ResultProps) => {
           className="bg-teal-600 hover:bg-teal-500 hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
           onClick={() => askContractToMintNft()}
         >
-          Send ugly purple div above as image to Fleek!
+          Mint my Wordle Result! now!
         </button>
       ) : (
         <button
