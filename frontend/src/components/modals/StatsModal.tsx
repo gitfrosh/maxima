@@ -11,6 +11,7 @@ import {
   NEW_WORD_TEXT,
   SHARE_TEXT,
 } from '../../constants/strings'
+import { useState } from 'react'
 
 type Props = {
   isOpen: boolean
@@ -37,6 +38,7 @@ export const StatsModal = ({
   isDarkMode,
   isHighContrastMode,
 }: Props) => {
+  const [result, setResult] = useState();
   if (gameStats.totalGames <= 0) {
     return (
       <BaseModal
@@ -71,9 +73,9 @@ export const StatsModal = ({
           </div>
           <button
             type="button"
-            className="mt-2 w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
+            className="mt-2 w-full rounded-md border border-transparent shadow-sm px-4 py-2 bg-indigo-600 text-base font-medium text-black hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 sm:text-sm"
             onClick={() => {
-              shareStatus(
+             const raw = shareStatus(
                 guesses,
                 isGameLost,
                 isHardMode,
@@ -81,10 +83,12 @@ export const StatsModal = ({
                 isHighContrastMode,
                 handleShareToClipboard
               )
+            setResult(raw);
             }}
           >
             {SHARE_TEXT}
           </button>
+          {result}
         </div>
       )}
     </BaseModal>
