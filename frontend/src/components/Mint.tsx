@@ -1,4 +1,4 @@
-import {useRef, useState} from "react";
+import React, {useRef, useState} from "react";
 import fleekStorage from "@fleekhq/fleek-storage-js";
 import {v4 as uuidv4} from "uuid";
 import html2canvas from "html2canvas";
@@ -54,7 +54,18 @@ const Mint = () => {
         }
         throw Error("no env vars set fleek");
     }
-
+    class Result extends React.Component {
+        render() {
+            return (
+                <div>hello wordle 4/6
+                    <p>⬛🟨⬛⬛⬛</p>
+                    <p>🟨⬛🟩⬛⬛</p>
+                    <p>⬛⬛🟨⬛🟩</p>
+                    <p>🟩🟩🟩🟩🟩</p>
+                </div>
+            );
+        }
+    }
     const askContractToMintNft = async () => {
         toggleMint(true);
         const element = printRef.current;
@@ -95,7 +106,7 @@ const Mint = () => {
     return (
         <div className="max-w-4xl mx-auto md:px-1 px-3">
             <div style={{background: "purple", height: 200}} ref={printRef}>
-                I will be in the image.
+                <Result/>
             </div>
             <br/>
             {!isMinting ? (
