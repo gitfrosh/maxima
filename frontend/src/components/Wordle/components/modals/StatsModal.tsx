@@ -14,6 +14,7 @@ type Props = {
   isGameLost: boolean;
   isGameWon: boolean;
   handleShareToClipboard: () => void;
+  provider: any
 };
 
 export const StatsModal = ({
@@ -23,6 +24,7 @@ export const StatsModal = ({
   gameStats,
   isGameLost,
   isGameWon,
+  provider
 }: Props) => {
 
   if (gameStats.totalGames <= 0) {
@@ -52,7 +54,7 @@ export const StatsModal = ({
                 daysInHours={true}
               />
           </div>
-            <Mint isGameWon={isGameWon} guesses={guesses} />
+            <Mint provider={provider} isGameWon={isGameWon} guesses={guesses} />
          
         </>
       ) : <>Go ahead and play your today's Wordle! 

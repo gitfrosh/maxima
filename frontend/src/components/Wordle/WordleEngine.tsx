@@ -34,7 +34,7 @@ import { AlertContainer } from "./components/alerts/AlertContainer";
 import { useAlert } from "./context/AlertContext";
 import { Navbar } from "./components/navbar/Navbar";
 
-function WordleEngine() {
+function WordleEngine({provider}: any) {
   const { showError: showErrorAlert, showSuccess: showSuccessAlert } =
     useAlert();
   const [currentGuess, setCurrentGuess] = useState("");
@@ -196,6 +196,7 @@ function WordleEngine() {
           handleClose={() => setIsInfoModalOpen(false)}
         />
         <StatsModal
+        provider={provider}
           isOpen={isStatsModalOpen}
           handleClose={() => setIsStatsModalOpen(false)}
           guesses={guesses}

@@ -6,7 +6,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 import Fortmatic from "fortmatic";
 import Authereum from "authereum";
 
-const Account = () => {
+const Account = ({provider, chainAlert}: any) => {
   const { activate, deactivate, account } = useEthers();
   const [gameRunning, runGame] = useState(false);
   function handleConnectWallet() {
@@ -66,7 +66,7 @@ const Account = () => {
           </div>
           <div>
             <br />
-            {!gameRunning ? (
+            {!gameRunning && !chainAlert ? (
               <p>
                 <button
                   onClick={() => runGame(true)}
@@ -77,7 +77,7 @@ const Account = () => {
                 </button>
               </p>
             ) : (
-              <WordleEngine />
+              !chainAlert ? <WordleEngine provider={provider} /> : null
             )}
           </div>
         </>

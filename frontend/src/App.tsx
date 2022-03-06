@@ -2,15 +2,45 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Account from "./components/Account";
 import { useEthers } from "@usedapp/core";
+import { ethers } from "ethers";
+import { useState } from "react";
+
+const provider = new ethers.providers.Web3Provider(window.ethereum, "any");
+
 
 function App() {
   const { account } = useEthers();
+  const [chainAlert, setChainAlert] = useState(false);
 
+  provider.on("network", (newNetwork, oldNetwork) => {
+    if (newNetwork?.name !== "rinkeby" ) {
+      setChainAlert(true)
+    } else {
+      setChainAlert(false)
+
+    }
+});
   return (
     <div className="text-teal-600 bg-[#FFFFFF]">
       <Header />
+
       <section className="text-gray-600 body-font">
-        <div className="max-w-5xl pt-52 pb-24 mx-auto">
+        <div className="max-w-5xl pt-32 pb-24 mx-auto">
+        {chainAlert ? (
+        <div
+          className=" mb-12 flex items-center bg-[#E63946] text-white text-sm font-bold px-4 py-3"
+          role="alert"
+        >
+          <svg
+            className="fill-current w-4 h-4 mr-2"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+          >
+            <path d="M12.432 0c1.34 0 2.01.912 2.01 1.957 0 1.305-1.164 2.512-2.679 2.512-1.269 0-2.009-.75-1.974-1.99C9.789 1.436 10.67 0 12.432 0zM8.309 20c-1.058 0-1.833-.652-1.093-3.524l1.214-5.092c.211-.814.246-1.141 0-1.141-.317 0-1.689.562-2.502 1.117l-.528-.88c2.572-2.186 5.531-3.467 6.801-3.467 1.057 0 1.233 1.273.705 3.23l-1.391 5.352c-.246.945-.141 1.271.106 1.271.317 0 1.357-.392 2.379-1.207l.6.814C12.098 19.02 9.365 20 8.309 20z" />
+          </svg>
+          <p>This app currently lives on Rinkeby. Please change chain network.</p>
+        </div>
+      ) : null}
           {account ? (
               <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-4 text-black-400 text-center">
               Welcome back `${account.slice(0, 6)}...$
@@ -31,7 +61,7 @@ function App() {
           ) : null}
           <div className="ml-6 text-center py-3 font-semibold text-black transition duration-500 ease-in-out transform bg-transparent bg-white px-7 text-md md:mt-0 hover:text-black hover:bg-white focus:shadow-outline">
             <div className="flex text-lg">
-              <Account />
+              <Account chainAlert={chainAlert} provider={provider} />
             </div>
           </div>
         </div>

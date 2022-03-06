@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import fleekStorage from "@fleekhq/fleek-storage-js";
 import { v4 as uuidv4 } from "uuid";
 import html2canvas from "html2canvas";
@@ -12,7 +12,7 @@ import moment from "moment";
 import Picker from "emoji-picker-react";
 
 const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET } = process.env;
-const provider = new ethers.providers.Web3Provider(window.ethereum);
+
 const contractAddress = "0x4e59c6eE5D27b3677253916E5d2491acBAFa2fCb";
 const donation = ethers.utils.parseEther("0.00001");
 const baseURI = "https://ipfs.fleek.co/ipfs";
@@ -20,6 +20,7 @@ const baseURI = "https://ipfs.fleek.co/ipfs";
 type ResultProps = {
   guesses: string[];
   isGameWon: boolean;
+  provider: any;
 };
 
 type TEmoji = {
@@ -44,7 +45,7 @@ const charities = [
   },
 ];
 
-const Mint = ({ guesses, isGameWon }: ResultProps) => {
+const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
   const printRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const { account } = useEthers();
   const [charity, setCharity] = useState(charities[0]);
@@ -176,7 +177,7 @@ const Mint = ({ guesses, isGameWon }: ResultProps) => {
           </p>
           {generateEmojiGrid(guesses, ["💚", "💛", "🖤"])}
           <p>
-            {moment().format("MM/DD/YYYY")} {chosenEmoji?.emoji || ''}
+            {moment().format("MM/DD/YYYY")} {chosenEmoji?.emoji || ""}
           </p>
         </div>
       )}
@@ -197,14 +198,14 @@ const Mint = ({ guesses, isGameWon }: ResultProps) => {
           {!emojiPickerOpen && (
             <div>
               <br />
-              <br/>
+              <br />
               <p>Please choose a charity before minting.</p>
               <Charity
                 charities={charities}
                 setCharity={setCharity}
                 charity={charity}
               />
-      <br />
+              <br />
               <button
                 className="bg-[#E63946] hover:bg-[#E63946] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
                 onClick={() => askContractToMintNft()}
