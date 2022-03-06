@@ -52,7 +52,7 @@ export const StatsModal = ({
                 daysInHours={true}
               />
           </div>
-            <Mint guesses={guesses} />
+            <Mint isGameWon={isGameWon} guesses={guesses} />
          
         </>
       ) : <>Go ahead and play your today's Wordle! 
