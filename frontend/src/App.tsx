@@ -89,7 +89,7 @@ function App() {
               For now, this is simply placeholder text, as we are waiting to
               hear back from a few educational charities. As such, this is just
               to function as a section placeholder until the project moves
-              closer to completion.
+              closer to completion .
             </p>
           </div>
           <div className="ktq4">
