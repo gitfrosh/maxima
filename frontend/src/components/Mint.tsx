@@ -17,7 +17,7 @@ const {
   REACT_APP_OPENSEA_COLLECTION,
 } = process.env;
 
-const contractAddress = "0x4e59c6eE5D27b3677253916E5d2491acBAFa2fCb";
+const contractAddress = "0x966e792A49B9600cbd4fd377AaB6499B4221A041";
 const donation = ethers.utils.parseEther("0.00001");
 const baseURI = "https://ipfs.fleek.co/ipfs";
 

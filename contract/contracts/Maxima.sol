@@ -6,9 +6,10 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
 import "hardhat/console.sol";
 import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
 // ERC721 signifies that the contract we are creating imports ERC721 and follows ERC721 contract from openzeppelin
-contract Maxima is ERC721, ERC721URIStorage {
+contract Maxima is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
     Counters.Counter private _tokenIdCounter;
