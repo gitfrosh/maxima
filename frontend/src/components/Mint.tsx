@@ -11,7 +11,8 @@ import Charity from "./Charity";
 import moment from "moment";
 import Picker from "emoji-picker-react";
 
-const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET } = process.env;
+const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET,REACT_APP_OPENSEA_COLLECTION } =
+  process.env;
 
 const contractAddress = "0x4e59c6eE5D27b3677253916E5d2491acBAFa2fCb";
 const donation = ethers.utils.parseEther("0.00001");
@@ -56,6 +57,8 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
   const [charity, setCharity] = useState(charities[0]);
   const [chosenEmoji, setChosenEmoji] = useState<TEmoji>();
   const [emojiPickerOpen, toggleEmojiPicker] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const onEmojiClick = (event: any, emojiObject: TEmoji) => {
     setChosenEmoji(emojiObject);
@@ -132,11 +135,13 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
       });
       return metadataURI;
     }
+    setError(true);
     throw Error("no env vars set fleek");
   }
 
   const askContractToMintNft = async () => {
     toggleMint(true);
+    setError(false);
     const element = printRef.current;
     const canvas = await html2canvas(element);
     const createKey = async () => {
@@ -156,11 +161,19 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
         if (REACT_APP_FLEEK_SECRET && REACT_APP_FLEEK_KEY) {
           const key = await createKey();
           const metadataURI = await storeImageAndMetadata(key, buffer);
-          await mintToken(`${baseURI}/${metadataURI.hash}`);
+          if (metadataURI) {
+            const result = await mintToken(`${baseURI}/${metadataURI.hash}`);
+            if (result) {
+              setSuccess(true);
+            }
+          } else {
+            setError(true);
+          }
           toggleMint(false);
         }
       } catch (e) {
         console.error(e);
+        setError(true);
         toggleMint(false);
       }
     };
@@ -217,6 +230,31 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
               >
                 Mint my Wordle result now!
               </button>
+              {error && (
+                <div
+                  className="bg-red-100 mt-2 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+                  role="alert"
+                >
+                  <span className="block sm:inline">
+                    There was an error with minting. Please retry later.
+                  </span>
+                </div>
+              )}
+              {success && (
+                <div
+                  className="bg-green-100 mt-2 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                  role="alert"
+                >
+                  <p className="block sm:inline">
+                    You have successfully minted today's WordleNFT. You can view
+                    it in our{' '}
+                    <a href={REACT_APP_OPENSEA_COLLECTION} target="_blank">
+                      collection
+                    </a>{' '}
+                    or mint another one.
+                  </p>
+                </div>
+              )}
             </div>
           )}
         </>
