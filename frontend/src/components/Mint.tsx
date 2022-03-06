@@ -9,6 +9,7 @@ import { useEthers } from "@usedapp/core";
 import { getGuessStatuses } from "./Wordle/lib/statuses";
 import Charity from "./Charity";
 import moment from "moment";
+import Picker from "emoji-picker-react";
 
 const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET } = process.env;
 const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -19,6 +20,10 @@ const baseURI = "https://ipfs.fleek.co/ipfs";
 type ResultProps = {
   guesses: string[];
   isGameWon: boolean;
+};
+
+type TEmoji = {
+  emoji: string;
 };
 
 const charities = [
@@ -43,6 +48,13 @@ const Mint = ({ guesses, isGameWon }: ResultProps) => {
   const printRef = useRef() as React.MutableRefObject<HTMLInputElement>;
   const { account } = useEthers();
   const [charity, setCharity] = useState(charities[0]);
+  const [chosenEmoji, setChosenEmoji] = useState<TEmoji>();
+  const [emojiPickerOpen, toggleEmojiPicker] = useState(false);
+
+  const onEmojiClick = (event: any, emojiObject: TEmoji) => {
+    setChosenEmoji(emojiObject);
+    toggleEmojiPicker(false);
+  };
 
   const generateEmojiGrid = (guesses: string[], tiles: string[]) => {
     const rows = guesses?.map((guess, i) => {
@@ -104,7 +116,7 @@ const Mint = ({ guesses, isGameWon }: ResultProps) => {
         description: "A collection of proudly minted Wordle NFTs.",
         external_url: input.publicUrl,
         image: `${baseURI}/${input.hash}`,
-        name: moment().format('MM/DD/YYYY'),
+        name: moment().format("MM/DD/YYYY"),
       };
       const metadataURI = await fleekStorage.upload({
         apiKey: REACT_APP_FLEEK_KEY,
@@ -155,37 +167,52 @@ const Mint = ({ guesses, isGameWon }: ResultProps) => {
     });
   };
 
-
-
   return (
     <div className="grid place-items-center">
-      <div className="p-4 border" ref={printRef}>
-        <p>
-          New <b>Wordle</b> on the block
-        </p>
-        {generateEmojiGrid(guesses, ["💚", "💛", "🖤"])}
-        <p>
-          {moment().format('MM/DD/YYYY')}
-        </p>
-      </div>
+      {!emojiPickerOpen && (
+        <div className="p-4 border" ref={printRef}>
+          <p>
+            New <b>Wordle</b> on the block
+          </p>
+          {generateEmojiGrid(guesses, ["💚", "💛", "🖤"])}
+          <p>
+            {moment().format("MM/DD/YYYY")} {chosenEmoji?.emoji || ''}
+          </p>
+        </div>
+      )}
       <br />
       {!isMinting && account ? (
         <>
           <p>{isGameWon ? <b>Good job! 🚀</b> : <b>Nice try!</b>}</p>
-          <p>Please choose a charity before minting.</p>
-          <Charity
-            charities={charities}
-            setCharity={setCharity}
-            charity={charity}
-          />
-          <br />
-          <br />
-          <button
-            className="bg-[#457B9D] hover:bg-[#A8DADC] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
-            onClick={() => askContractToMintNft()}
-          >
-            Mint my Wordle result now!
-          </button>
+          {emojiPickerOpen ? (
+            <Picker onEmojiClick={onEmojiClick} />
+          ) : (
+            <button
+              className="bg-[#457B9D] hover:bg-[#A8DADC] hover:text-white active:bg-teal-400  text-white py-1 px-3 rounded-full"
+              onClick={() => toggleEmojiPicker(true)}
+            >
+              Click here to add your reaction!
+            </button>
+          )}
+          {!emojiPickerOpen && (
+            <div>
+              <br />
+              <br/>
+              <p>Please choose a charity before minting.</p>
+              <Charity
+                charities={charities}
+                setCharity={setCharity}
+                charity={charity}
+              />
+      <br />
+              <button
+                className="bg-[#E63946] hover:bg-[#E63946] hover:text-white active:bg-teal-500  text-white font-bold py-2 px-4 rounded-full"
+                onClick={() => askContractToMintNft()}
+              >
+                Mint my Wordle result now!
+              </button>
+            </div>
+          )}
         </>
       ) : (
         <span>

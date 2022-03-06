@@ -19,9 +19,10 @@ function App() {
           ) : null}
           {!account ? (
             <>
-              <h1 className="text-80 text-center font-4 lh-6 ld-04 font-bold text-[#1D3557] mb-6">
-                Wordle
-              </h1>
+        <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
+              The Wordle that gives back!
+              </h2>
+             
               <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
                 To get started with today's Wordle, simply connect your wallet
                 to play. <br />
@@ -35,14 +36,11 @@ function App() {
           </div>
         </div>
 
-        <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
-          The Wordle that gives back!
-        </h2>
-        <br></br>
         <p className="mx-auto text-xl text-center text-gray-300 font-normal leading-relaxed fs521 lg:w-2/3">
           By minting your Wordle result on the blockchain, it directly helps one
           of these great charities:
         </p>
+       
         <div className="pt-12 pb-24 max-w-4xl mx-auto fsac4 md:px-1 px-3">
           <div className="ktq4">
             <svg
