@@ -42,7 +42,7 @@ export const StatsModal = ({
       isOpen={isOpen}
       handleClose={handleClose}
     >
-      {(isGameLost || isGameWon) && (
+      {(isGameLost || isGameWon) ? (
         <>
           <div className="mt-5 mb-5 sm:mt-6 columns-2 dark:text-white content-center	">
               <h5>{NEW_WORD_TEXT}</h5>
@@ -55,7 +55,9 @@ export const StatsModal = ({
             <Mint guesses={guesses} />
          
         </>
-      )}
+      ) : <>Go ahead and play your today's Wordle! 
+      You'll find your statistics here.</>}
+      
     </BaseModal>
   );
 };
