@@ -77,9 +77,13 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #1</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Freecodecamp</h3>
           <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
-          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          Our mission: to help people learn to code for free. We accomplish this by creating thousands of videos,
+          articles, and interactive coding lessons - all freely available to the public. 
+          We also have thousands of freeCodeCamp study groups around the world.
+          Donations to freeCodeCamp go toward our education initiatives,
+          and help pay for servers, services, and staff.          
           </p>
         </div>
         <div className="ktq4">
@@ -97,9 +101,11 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #2</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Ukraine DAO</h3>
           <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
-          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          The UkraineDAO - organized sale is the largest NFT-based crypto contribution to Ukraine’s war efforts to date. 
+          The idea to form the UkraineDao (UD) formed shortly after Putin started the war in Ukraine on Feb. 24. Nadya from Pussyriot, Trippy from Trippy Labs, and PleasrDAO members began an online chat, inviting other people with various backgrounds in tech, contract experience, activists, artists, influencers, editors, media …truly a 
+          cross- section of people with a united goal to help Ukrainians on the ground immediately.          
           </p>
         </div>
         <div className="ktq4">
@@ -117,10 +123,24 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #3</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Room to Read</h3>
           <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
-          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
-          </p>
+          Founded in 2000 on the belief that World Change Starts with Educated Children®, 
+          Room to Read is creating a world free from illiteracy and gender inequality. 
+          We are achieving this goal by helping children in historically low-income communities
+          develop literacy skills and a habit of reading, and by supporting girls as they build skills to succeed
+          in secondary school and negotiate key life decisions. 
+          Room to Read collaborates with local communities, partner organizations and governments to test 
+          and implement innovative models that can be integrated into the education system to 
+          deliver positive outcomes for children at scale. To date, Room to Read has benefited more than 32 million
+          children and has worked in 21 countries and in more than 49,000 communities, 
+          with additional support through remote solutions that facilitate learning beyond the classroom. 
+          Room to Read aims to reach 40 million children by 2025.    
+          To date, Room to Read has benefited more than 32 million children and has worked in more than 49,000 
+          communities and 21 countries, including Bangladesh, Cambodia, Grenada, Honduras, India, Indonesia, Italy,
+          Jordan, Laos, Myanmar, Nepal, Pakistan, Philippines, Rwanda, South Africa, Sri Lanka, Tanzania, Uganda,
+          United States, Vietnam and Zambia. Room to Read plans to benefit 40 million children by 2025. 
+          Learn more at www.roomtoread.org.      </p>
         </div>
         <div className="ktq4">
           <svg
@@ -137,9 +157,14 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #4</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Plant A Tree</h3>
           <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
-          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          Plant A Tree is a bunch of motivated entrepreneurs who want to secure the future of the planet. 
+          Trees are the main oxygen source of our Earth, by planting them we can reduce the CO2 level. 
+          As a devoted team who really wants to do something to our environment, 
+          we are constantly working with foresters and planting, growing and protecting our Plant A Tree forests
+           for a better and greener tomorrow! 
+          Join our mission and let’s give Nature a little back of how much it’s given to us.          
           </p>
         </div>
       </div>
