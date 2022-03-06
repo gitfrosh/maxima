@@ -6,7 +6,7 @@ Deployed to [fleek](https://wordle-on-the-block.on.fleek.co/)!
 
 ## Get it started
 ### Frontend
-This project is built with create-react-app and craco It stores Wordle NFTs on Fleek/Filecoin (REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET).
+This project is built with create-react-app and craco It stores Wordle NFTs on Fleek/Filecoin. Required secrets are `REACT_APP_FLEEK_KEY`, `REACT_APP_FLEEK_SECRET`, make sure they are added to `.env` for local run
 
 #### `npm install`
 Install dependencies.
@@ -15,7 +15,7 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 ### Backend
-This application is built with Solidity/Hardhat on EVM. It uses Alchemy (MUMBAI_URL, RINKEBY_URL, ..) and needs your PRIVATE_KEY for deploying.
+This application is built with Solidity/Hardhat on EVM. It uses Alchemy (MUMBAI_URL, RINKEBY_URL, ..) and needs your PRIVATE_KEY for deploying. Make sure secrets are added to `.env` for local run
 #### `npm install`
 Install dependencies.
 
@@ -23,4 +23,4 @@ Install dependencies.
 Dry-run test functions on your smart contract.
 
 #### `npx hardhat run scripts/deploy.js --network rinkeby`
-Deploy your smart contract.
+Deploy your smart contract. 
