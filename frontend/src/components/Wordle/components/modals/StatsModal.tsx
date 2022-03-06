@@ -14,7 +14,7 @@ type Props = {
   isGameLost: boolean;
   isGameWon: boolean;
   handleShareToClipboard: () => void;
-  provider: any
+  provider: any;
 };
 
 export const StatsModal = ({
@@ -24,8 +24,13 @@ export const StatsModal = ({
   gameStats,
   isGameLost,
   isGameWon,
-  provider
+  provider,
 }: Props) => {
+  const GoAhead = () => (
+    <>
+      Go ahead and play your today's Wordle! You'll find your result here.
+    </>
+  );
 
   if (gameStats.totalGames <= 0) {
     return (
@@ -34,7 +39,7 @@ export const StatsModal = ({
         isOpen={isOpen}
         handleClose={handleClose}
       >
-        <StatBar gameStats={gameStats} />
+        <GoAhead />
       </BaseModal>
     );
   }
@@ -44,22 +49,21 @@ export const StatsModal = ({
       isOpen={isOpen}
       handleClose={handleClose}
     >
-      {(isGameLost || isGameWon) ? (
+      {isGameLost || isGameWon ? (
         <>
           <div className="mt-5 mb-5 sm:mt-6 columns-2 dark:text-white content-center	">
-              <h5>{NEW_WORD_TEXT}</h5>
-              <Countdown
-                className="text-lg font-medium text-gray-900 dark:text-gray-100"
-                date={tomorrow}
-                daysInHours={true}
-              />
+            <h5>{NEW_WORD_TEXT}</h5>
+            <Countdown
+              className="text-lg font-medium text-gray-900 dark:text-gray-100"
+              date={tomorrow}
+              daysInHours={true}
+            />
           </div>
-            <Mint provider={provider} isGameWon={isGameWon} guesses={guesses} />
-         
+          <Mint provider={provider} isGameWon={isGameWon} guesses={guesses} />
         </>
-      ) : <>Go ahead and play your today's Wordle! 
-      You'll find your statistics here.</>}
-      
+      ) : (
+        <GoAhead />
+      )}
     </BaseModal>
   );
 };

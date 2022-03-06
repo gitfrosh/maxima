@@ -43,6 +43,11 @@ const charities = [
     address: "",
     disabled: true,
   },
+  {
+    name: "FreecodeCamp",
+    address: "",
+    disabled: true,
+  },
 ];
 
 const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
