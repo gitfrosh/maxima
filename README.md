@@ -1,6 +1,9 @@
 # WORDLE on the BLOCK
 
 This project was built by Team Maxima ([Afoma](https://github.com/Afoma), [Rike](https://github.com/gitfrosh), [Kristen](https://github.com/cuddleofdeath), [Brenda](https://github.com/mejia-b) and [Ana](https://github.com/mspuz) ) during the 2022 [web3con hackathon](https://www.web3con.dev/hackathon).
+
+Deployed to [fleek](https://wordle-on-the-block.on.fleek.co/)!
+
 ## Get it started
 ### Frontend
 This project is built with create-react-app and craco It stores Wordle NFTs on Fleek/Filecoin (REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET).
