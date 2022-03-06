@@ -56,7 +56,7 @@ const Home = () => {
         </div>
       </div>
 
-      <p className="mx-auto text-xl text-center text-gray-300 font-normal leading-relaxed fs521 lg:w-2/3">
+      <p className="mx-auto text-xl text-center text-[#000000] font-normal leading-relaxed fs521 lg:w-2/3">
         By minting your Wordle result on the blockchain, it directly helps one
         of these great charities:
       </p>
@@ -77,7 +77,10 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#1D3557]">Charity #1</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #1</h3>
+          <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
+          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          </p>
         </div>
         <div className="ktq4">
           <svg
@@ -94,7 +97,10 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#1D3557]">Charity #2</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #2</h3>
+          <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
+          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          </p>
         </div>
         <div className="ktq4">
           <svg
@@ -111,7 +117,10 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#1D3557]">Charity #3</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #3</h3>
+          <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
+          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          </p>
         </div>
         <div className="ktq4">
           <svg
@@ -128,7 +137,10 @@ const Home = () => {
               d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
             />
           </svg>
-          <h3 className="pt-3 font-bold text-lg text-[#1D3557]">Charity #4</h3>
+          <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Charity #4</h3>
+          <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
+          This is where information regarding the organization/charity goes. For now, this is simply placeholder text, as we are waiting to hear back from a few educational charities. As such, this is just to function as a section placeholder until the project moves closer to completion .
+          </p>
         </div>
       </div>
     </>
