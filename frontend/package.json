@@ -19,6 +19,7 @@
 		"canvas-to-image": "^2.2.0",
 		"classnames": "^2.3.1",
 		"emoji-picker-react": "^3.5.1",
+		"ethers": "^5.5.4",
 		"fortmatic": "^2.2.1",
 		"framer-motion": "^4.1.17",
 		"grapheme-splitter": "1.0.4",
