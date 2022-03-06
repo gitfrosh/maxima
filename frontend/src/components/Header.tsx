@@ -15,7 +15,7 @@ export default function Header() {
             to="/"
             className="flex text-3xl text-[#F1FAEE] font-medium mb-4 md:mb-0"
           >
-            WordleNFT
+            WORDLE on the BLOCK
           </Link>
           <button
             className="text-teal-600 pb-4 cursor-pointer leading-none px-3 py-1 md:hidden outline-none focus:outline-none content-end ml-auto"

@@ -52,6 +52,11 @@ const charities = [
     address: "",
     disabled: true,
   },
+  {
+    name: "Plant a tree Project",
+    address: "",
+    disabled: true,
+  },
 ];
 
 const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
