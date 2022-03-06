@@ -11,8 +11,11 @@ import Charity from "./Charity";
 import moment from "moment";
 import Picker from "emoji-picker-react";
 
-const { REACT_APP_FLEEK_KEY, REACT_APP_FLEEK_SECRET,REACT_APP_OPENSEA_COLLECTION } =
-  process.env;
+const {
+  REACT_APP_FLEEK_KEY,
+  REACT_APP_FLEEK_SECRET,
+  REACT_APP_OPENSEA_COLLECTION,
+} = process.env;
 
 const contractAddress = "0x4e59c6eE5D27b3677253916E5d2491acBAFa2fCb";
 const donation = ethers.utils.parseEther("0.00001");
@@ -115,28 +118,31 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
 
   async function storeImageAndMetadata(key: string, buffer: Buffer) {
     if (REACT_APP_FLEEK_SECRET && REACT_APP_FLEEK_KEY) {
-      const input = await fleekStorage.upload({
-        apiKey: REACT_APP_FLEEK_KEY,
-        apiSecret: REACT_APP_FLEEK_SECRET,
-        key: `nft/${key}`,
-        data: buffer,
-      });
-      const metadata = {
-        description: "A collection of proudly minted Wordle NFTs.",
-        external_url: input.publicUrl,
-        image: `${baseURI}/${input.hash}`,
-        name: moment().format("MM/DD/YYYY"),
-      };
-      const metadataURI = await fleekStorage.upload({
-        apiKey: REACT_APP_FLEEK_KEY,
-        apiSecret: REACT_APP_FLEEK_SECRET,
-        key: key,
-        data: Buffer.from(JSON.stringify(metadata)),
-      });
-      return metadataURI;
+      try {
+        const input = await fleekStorage.upload({
+          apiKey: REACT_APP_FLEEK_KEY,
+          apiSecret: REACT_APP_FLEEK_SECRET,
+          key: `nft/${key}`,
+          data: buffer,
+        });
+        const metadata = {
+          description: "A collection of proudly minted Wordle NFTs.",
+          external_url: input.publicUrl,
+          image: `${baseURI}/${input.hash}`,
+          name: moment().format("MM/DD/YYYY"),
+        };
+        const metadataURI = await fleekStorage.upload({
+          apiKey: REACT_APP_FLEEK_KEY,
+          apiSecret: REACT_APP_FLEEK_SECRET,
+          key: key,
+          data: Buffer.from(JSON.stringify(metadata)),
+        });
+        return metadataURI;
+      } catch (e) {
+        console.error(e);
+        setError(true);
+      }
     }
-    setError(true);
-    throw Error("no env vars set fleek");
   }
 
   const askContractToMintNft = async () => {
@@ -247,10 +253,10 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
                 >
                   <p className="block sm:inline">
                     You have successfully minted today's WordleNFT. You can view
-                    it in our{' '}
+                    it in our{" "}
                     <a href={REACT_APP_OPENSEA_COLLECTION} target="_blank">
                       collection
-                    </a>{' '}
+                    </a>{" "}
                     or mint another one.
                   </p>
                 </div>
