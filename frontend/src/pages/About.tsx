@@ -3,17 +3,18 @@ const About = () => {
     <>
       <div className="max-w-5xl pt-32 pb-24 mx-auto">
         <>
-        <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
-              The Wordle that gives back!
-            </h2>
+          <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
+            The Wordle that gives back!
+          </h2>
 
-            <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
+          <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
             Worlde on the block is a word game, chiefly inpsired by the original
             worlde game that was built by Josh Wardle. The idea came into
             existence when 5 female coders (Maxima) hacked all day long for a
             project that wouldn't just be fun to use but beneficial to the
             society. This idea became a reality with the combined unique efforts
-            of this dedicated team to see that the idea became a success.</h2>
+            of this dedicated team to see that the idea became a success.
+          </h2>
         </>
       </div>
 
@@ -76,7 +77,7 @@ const About = () => {
             ab culpa molestiae!
           </p>
         </div>
-    
+
         <div className="ktq4">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -96,7 +97,6 @@ const About = () => {
             bringing others into the world of STEM. Hiking, exploring new
             cities, and making vegan food are some of her hobbies.{" "}
           </p>
-         
         </div>
         <div className="ktq4">
           <svg
@@ -114,10 +114,25 @@ const About = () => {
             recently concluded hackathon that was organized by Decentology. She
             is passionate about coding, experimenting with and researching
             complex topics and breaking down the information to people in a
-            simplified manner. You can connect with her on
-            <a href="https://www.twitter.com/afoma_orji">Twitter</a>
-            <a href="https://www.linkedin.com/in/afomaorji">Linkedin</a>
-            <a href="https://www.github.com/afoma">Github</a>
+            simplified manner. You can connect with her on{" "}
+            <a
+              className="text-md text-[#457B9D] hover:text-teal-600 transition-colors duration-300 hover:text-deep-purple-accent-400 font-semibold tracking-tight"
+              href="https://www.twitter.com/afoma_orji"
+            >
+              Twitter
+            </a>{" "}
+            <a
+              className="text-md text-[#457B9D] hover:text-teal-600 transition-colors duration-300 hover:text-deep-purple-accent-400 font-semibold tracking-tight"
+              href="https://www.linkedin.com/in/afomaorji"
+            >
+              Linkedin
+            </a>{" "}
+            <a
+              className="text-md text-[#457B9D] hover:text-teal-600 transition-colors duration-300 hover:text-deep-purple-accent-400 font-semibold tracking-tight"
+              href="https://www.github.com/afoma"
+            >
+              Github
+            </a>.
           </p>
         </div>
       </div>
