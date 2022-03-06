@@ -1,4 +1,4 @@
-# WORDLE on the BLOCK
+# WORDLE on The BLOCK
 
 This project was built by Team Maxima ([Afoma](https://github.com/Afoma), [Rike](https://github.com/gitfrosh), [Kristen](https://github.com/cuddleofdeath), [Brenda](https://github.com/mejia-b) and [Ana](https://github.com/mspuz) ) during the 2022 [web3con hackathon](https://www.web3con.dev/hackathon).
 
