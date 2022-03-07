@@ -8,8 +8,8 @@ const About = () => {
           </h2>
 
           <h2 className="text-2xl font-4 font-semibold lh-6 ld-04 pb-11 text-black-400 text-center">
-            Worlde on the block is a word game, chiefly inpsired by the original
-            worlde game that was built by Josh Wardle. The idea came into
+            Wordle on the block is a word game, chiefly inpsired by the original
+            wordle game that was built by Josh Wardle. The idea came into
             existence when 5 female coders (Maxima) hacked all day long for a
             project that wouldn't just be fun to use but beneficial to the
             society. This idea became a reality with the combined unique efforts
@@ -90,8 +90,8 @@ const About = () => {
           </h3>
           <p className="pt-2 value-text text-md text-[#FFFFFF] fkrr1">
             A Computer Engineering student who enjoys learning about Blockchain
-            Technology, DataScience, and Cybersecurity. She currently teaches
-            other young engineers and college students how to code and loves
+            Technology, DataScience, and Cybersecurity. She currently freelances,
+            teaches other young engineers and college students how to code, and loves
             bringing others into the world of STEM. Hiking, exploring new
             cities, and making vegan food are some of her hobbies.{" "}
           </p>
