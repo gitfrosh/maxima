@@ -39,7 +39,7 @@ const Home = () => {
       <div className="max-w-5xl pb-24 mx-auto">
         {!account ? (
           <>
-            <h2 className="pt-40 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
+            <h2 className="pt-40 p-10 mb-1 text-2xl font-semibold tracking-tighter text-center text-[#1D3557] lg:text-7xl md:text-6xl">
               The Wordle that gives back!
             </h2>
 
@@ -74,7 +74,7 @@ const Home = () => {
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" fill="#faca70"
             />
           </svg>
           <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Freecodecamp</h3>
@@ -98,7 +98,7 @@ const Home = () => {
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" fill="#faca70"
             />
           </svg>
           <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Ukraine DAO</h3>
@@ -120,7 +120,7 @@ const Home = () => {
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" fill="#faca70"
             />
           </svg>
           <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Room to Read</h3>
@@ -145,7 +145,7 @@ const Home = () => {
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
-              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+              d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" fill="#faca70"
             />
           </svg>
           <h3 className="pt-3 font-bold text-lg text-[#FFFFFF]">Plant A Tree</h3>
