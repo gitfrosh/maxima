@@ -130,24 +130,28 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
           key: `nft/${key}`,
           data: buffer,
         });
+        console.log(input)
         const metadata = {
           description: "A collection of proudly minted Wordle NFTs.",
           external_url: input.publicUrl,
           image: `${baseURI}/${input.hash}`,
           name: moment().format("MM/DD/YYYY"),
         };
+        console.log(metadata)
         const metadataURI = await fleekStorage.upload({
           apiKey: REACT_APP_FLEEK_KEY,
           apiSecret: REACT_APP_FLEEK_SECRET,
           key: key,
           data: Buffer.from(JSON.stringify(metadata)),
         });
+        console.log(metadataURI)
         return metadataURI;
       } catch (e) {
         console.error(e);
         setError(true);
       }
     }
+    throw Error("no env vars set fleek");
   }
 
   const askContractToMintNft = async () => {
@@ -173,8 +177,10 @@ const Mint = ({ provider, guesses, isGameWon }: ResultProps) => {
           const key = await createKey();
           const metadataURI = await storeImageAndMetadata(key, buffer);
           if (metadataURI) {
+            console.log(metadataURI)
             const result = await mintToken(`${baseURI}/${metadataURI.hash}`);
             if (result) {
+              console.log(result)
               setSuccess(true);
             }
           } else {
