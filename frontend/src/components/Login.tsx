@@ -43,7 +43,9 @@ const Login = ({runGame}: any) => {
     try {
       const provider = await web3Modal.connect();
       await activate(provider);
-    } catch (error: any) {}
+    } catch (error: any) {
+      console.log(error)
+    }
   };
   function handleConnectWallet() {
     activateProvider();

@@ -23,7 +23,7 @@ const Home = () => {
     } catch(e) {
       console.error(e)
     }
-  });
+  }, []);
 
 
 
